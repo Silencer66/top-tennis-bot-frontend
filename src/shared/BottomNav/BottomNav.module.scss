@@ -36,8 +36,8 @@
     gap: 4px;
 
     color: hsl(var(--muted-foreground) / 0.7);
-    transition: transform 200ms ease, background-color 200ms ease, color 200ms ease,
-        box-shadow 200ms ease;
+    transition: transform 200ms ease, background-color 200ms ease,
+        color 200ms ease, box-shadow 200ms ease;
 }
 
 .tabActive {
@@ -73,5 +73,3 @@
 .labelActive {
     color: hsl(var(--primary));
 }
-
-

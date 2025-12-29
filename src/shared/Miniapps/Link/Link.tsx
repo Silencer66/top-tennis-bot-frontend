@@ -7,41 +7,45 @@ import { classNames } from "@/css/classnames.ts";
 import styles from "./Link.module.scss";
 
 export const Link: FC<LinkProps> = ({
-  className,
-  onClick: propsOnClick,
-  to,
-  ...rest
+    className,
+    onClick: propsOnClick,
+    to,
+    ...rest
 }) => {
-  const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>((e) => {
-    propsOnClick?.(e);
+    const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
+        (e) => {
+            propsOnClick?.(e);
 
-    // Compute if target path is external. In this case we would like to open
-    // link using TMA method.
-    let path: string;
-    if (typeof to === 'string') {
-      path = to;
-    } else {
-      const { search = '', pathname = '', hash = '' } = to;
-      path = `${pathname}?${search}#${hash}`;
-    }
+            // Compute if target path is external. In this case we would like to open
+            // link using TMA method.
+            let path: string;
+            if (typeof to === "string") {
+                path = to;
+            } else {
+                const { search = "", pathname = "", hash = "" } = to;
+                path = `${pathname}?${search}#${hash}`;
+            }
 
-    const targetUrl = new URL(path, window.location.toString());
-    const currentUrl = new URL(window.location.toString());
-    const isExternal = targetUrl.protocol !== currentUrl.protocol
-      || targetUrl.host !== currentUrl.host;
+            const targetUrl = new URL(path, window.location.toString());
+            const currentUrl = new URL(window.location.toString());
+            const isExternal =
+                targetUrl.protocol !== currentUrl.protocol ||
+                targetUrl.host !== currentUrl.host;
 
-    if (isExternal) {
-      e.preventDefault();
-      openLink(targetUrl.toString());
-    }
-  }, [to, propsOnClick]);
+            if (isExternal) {
+                e.preventDefault();
+                openLink(targetUrl.toString());
+            }
+        },
+        [to, propsOnClick]
+    );
 
-  return (
-    <RouterLink
-      {...rest}
-      to={to}
-      onClick={onClick}
-      className={classNames(className, styles.link)}
-    />
-  );
+    return (
+        <RouterLink
+            {...rest}
+            to={to}
+            onClick={onClick}
+            className={classNames(className, styles.link)}
+        />
+    );
 };
