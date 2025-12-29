@@ -1,0 +1,77 @@
+.root {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+
+    border-top: 1px solid hsl(var(--border));
+
+    /* "glass" effect */
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* safe area */
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 16px;
+}
+
+.tab {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    color: hsl(var(--muted-foreground) / 0.7);
+    transition: transform 200ms ease, background-color 200ms ease, color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.tabActive {
+    color: hsl(var(--primary));
+}
+
+.tabAccent {
+    margin-top: -16px;
+    padding: 12px;
+    border-radius: 999px;
+
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.iconAccent {
+    width: 24px;
+    height: 24px;
+}
+
+.label {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+}
+
+.labelActive {
+    color: hsl(var(--primary));
+}
+
+
