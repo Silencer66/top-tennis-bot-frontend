@@ -1,0 +1,58 @@
+.root {
+    appearance: none;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 12px;
+    transition: background-color 200ms ease, color 200ms ease,
+        border-color 200ms ease, opacity 200ms ease, transform 200ms ease;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.root:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.size_md {
+    height: 40px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.size_sm {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.variant_default {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+.variant_secondary {
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+}
+
+.variant_outline {
+    background: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+}
+
+.variant_ghost {
+    background: transparent;
+    color: hsl(var(--primary));
+}

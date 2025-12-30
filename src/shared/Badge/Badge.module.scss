@@ -1,0 +1,16 @@
+.root {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 600;
+}
+
+.variant_outline {
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+}

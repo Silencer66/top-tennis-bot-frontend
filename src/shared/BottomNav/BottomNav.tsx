@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { useMemo } from "react";
 
-import { classNames } from "@/css/classnames";
+import { classNames } from "@/helpers/classnames";
 
 import styles from "./BottomNav.module.scss";
 import { Tab } from "@/types";

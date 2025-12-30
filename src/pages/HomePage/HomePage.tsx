@@ -1,7 +1,7 @@
 import { Bell, Calendar } from "lucide-react";
 import { useMemo, type FC } from "react";
 
-import { classNames } from "@/css/classnames";
+import { classNames } from "@/helpers/classnames";
 
 import styles from "./HomePage.module.scss";
 
