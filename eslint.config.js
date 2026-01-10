@@ -36,5 +36,7 @@ export default tseslint.config({
     },
     rules: {
         "@typescript-eslint/no-unused-expressions": 0,
+        "@typescript-eslint/no-unused-vars": "warn",
+        "no-unused-vars": "off", // отключаем базовое правило в пользу @typescript-eslint
     },
 });

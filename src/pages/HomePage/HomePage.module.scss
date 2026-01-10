@@ -66,6 +66,43 @@
     margin-bottom: 16px;
 }
 
+.devRole {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+}
+
+.devRoleLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: hsl(var(--muted-foreground) / 0.8);
+    margin-right: 4px;
+}
+
+.devRoleButton {
+    appearance: none;
+    border: 1px solid hsl(var(--border));
+    background: transparent;
+    color: hsl(var(--foreground));
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.devRoleButtonActive {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: transparent;
+}
+
 .greeting {
     margin: 0 0 6px;
     font-size: 14px;

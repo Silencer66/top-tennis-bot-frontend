@@ -1,4 +1,5 @@
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { RecoilRoot } from "recoil";
 
 import { App } from "@/shared/Miniapps/App.tsx";
 import { ErrorBoundary } from "@/shared/Miniapps/ErrorBoundary.tsx";
@@ -24,11 +25,13 @@ function ErrorBoundaryError({ error }: { error: unknown }) {
 export function Root() {
     return (
         <ErrorBoundary fallback={ErrorBoundaryError}>
-            <TonConnectUIProvider
-                manifestUrl={publicUrl("tonconnect-manifest.json")}
-            >
-                <App />
-            </TonConnectUIProvider>
+            <RecoilRoot>
+                <TonConnectUIProvider
+                    manifestUrl={publicUrl("tonconnect-manifest.json")}
+                >
+                    <App />
+                </TonConnectUIProvider>
+            </RecoilRoot>
         </ErrorBoundary>
     );
 }

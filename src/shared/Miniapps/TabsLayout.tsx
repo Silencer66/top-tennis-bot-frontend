@@ -3,12 +3,15 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { BottomNav } from "@/shared/BottomNav/BottomNav";
 import { Page } from "@/shared/Miniapps/Page";
 import type { Tab } from "@/types";
+import { useRecoilState } from "recoil";
+import { userState } from "@/helpers/recoil";
 
 function tabFromPathname(pathname: string): Tab {
     if (pathname === "/" || pathname === "") return "home";
     if (pathname.startsWith("/all-tennis-sessions")) return "trainings";
     if (pathname.startsWith("/players")) return "players";
     if (pathname.startsWith("/stats")) return "stats";
+    if (pathname.startsWith("/my-sessions")) return "my-sessions";
     // Fallback
     return "home";
 }
@@ -25,6 +28,8 @@ function pathFromTab(tab: Tab): string {
             return "/stats";
         case "create":
             return "/create-training";
+        case "my-sessions":
+            return "/my-sessions";
     }
 }
 
@@ -33,7 +38,9 @@ export function TabsLayout() {
     const location = useLocation();
 
     const activeTab = tabFromPathname(location.pathname);
+    const [user, setUser] = useRecoilState(userState);
 
+    const isCoach = user.role === "coach";
     return (
         <Page back={false}>
             <div style={{ paddingBottom: 72 }}>
@@ -42,8 +49,7 @@ export function TabsLayout() {
             <BottomNav
                 activeTab={activeTab}
                 onTabChange={(tab) => navigate(pathFromTab(tab))}
-                // TODO: when we have roles/auth, pass real value here
-                isCoach={false}
+                isCoach={isCoach}
             />
         </Page>
     );
