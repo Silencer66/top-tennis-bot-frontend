@@ -1,7 +1,9 @@
 import { Bell, Calendar } from "lucide-react";
 import { useMemo, type FC } from "react";
+import { useRecoilState } from "recoil";
 
 import { classNames } from "@/helpers/classnames";
+import { userState } from "@/helpers/recoil";
 
 import styles from "./HomePage.module.scss";
 
@@ -12,6 +14,7 @@ function capitalizeFirstLetter(value: string): string {
 }
 
 export const HomePage: FC = () => {
+    const [user, setUser] = useRecoilState(userState);
     const now = useMemo(() => new Date(), []);
 
     const greeting = useMemo(() => {
@@ -56,9 +59,34 @@ export const HomePage: FC = () => {
                 </button>
             </header>
 
+            {import.meta.env.DEV && (
+                <div className={styles.devRole}>
+                    <span className={styles.devRoleLabel}>DEV роль:</span>
+                    <button
+                        type="button"
+                        className={classNames(styles.devRoleButton, {
+                            [styles.devRoleButtonActive]:
+                                user.role === "player",
+                        })}
+                        onClick={() => setUser({ ...user, role: "player" })}
+                    >
+                        Игрок
+                    </button>
+                    <button
+                        type="button"
+                        className={classNames(styles.devRoleButton, {
+                            [styles.devRoleButtonActive]: user.role === "coach",
+                        })}
+                        onClick={() => setUser({ ...user, role: "coach" })}
+                    >
+                        Тренер
+                    </button>
+                </div>
+            )}
+
             <div className={styles.header}>
                 <p className={styles.greeting}>{greeting}</p>
-                <h2 className={styles.title}>Пользователь</h2>
+                <h2 className={styles.title}>{user.name || "Пользователь"}</h2>
             </div>
 
             <section className={styles.dateCard} aria-label="Сегодня">

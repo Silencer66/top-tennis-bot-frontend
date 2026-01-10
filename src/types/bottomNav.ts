@@ -1,1 +1,7 @@
-export type Tab = "home" | "trainings" | "players" | "stats" | "create";
+export type Tab =
+    | "home"
+    | "trainings"
+    | "create"
+    | "players"
+    | "stats"
+    | "my-sessions";

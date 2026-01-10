@@ -36,7 +36,7 @@ const coachTabs: BottomNavTabItem[] = [
 const playerTabs: BottomNavTabItem[] = [
     { id: "home", icon: Home, label: "Главная" },
     { id: "trainings", icon: Calendar, label: "Тренировки" },
-    { id: "stats", icon: BarChart3, label: "Мои записи" },
+    { id: "my-sessions", icon: BarChart3, label: "Мои записи" },
 ];
 
 interface IBottomNavProps {

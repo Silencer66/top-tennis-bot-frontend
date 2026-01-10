@@ -1,0 +1,169 @@
+.root {
+    background: hsl(var(--card));
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: 0 4px 20px -4px hsl(220 30% 15% / 0.08);
+    transition: border-color 200ms ease, box-shadow 200ms ease,
+        background-color 200ms ease;
+}
+
+.root:hover {
+    box-shadow: var(--shadow-card);
+}
+
+.noShow {
+    border-color: hsl(var(--destructive) / 0.3);
+    background: hsl(var(--destructive) / 0.05);
+}
+
+.inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    background: hsl(var(--primary) / 0.1);
+}
+
+.avatarNoShow {
+    background: hsl(var(--destructive) / 0.1);
+}
+
+.avatarIcon {
+    width: 24px;
+    height: 24px;
+    color: hsl(var(--primary));
+}
+
+.avatarIconNoShow {
+    color: hsl(var(--destructive));
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.nameRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.levelBadge {
+    flex: 0 0 auto;
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+.levelBeginner {
+    background: hsl(var(--success) / 0.1) !important;
+    color: hsl(var(--success)) !important;
+    border-color: hsl(var(--success) / 0.2) !important;
+}
+
+.levelIntermediate {
+    background: hsl(var(--warning) / 0.1) !important;
+    color: hsl(var(--warning)) !important;
+    border-color: hsl(var(--warning) / 0.2) !important;
+}
+
+.levelAdvanced {
+    background: hsl(var(--destructive) / 0.1) !important;
+    color: hsl(var(--destructive)) !important;
+    border-color: hsl(var(--destructive) / 0.2) !important;
+}
+
+.phoneRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    color: hsl(var(--muted-foreground) / 0.9);
+    font-size: 13px;
+}
+
+.phoneIcon {
+    width: 14px;
+    height: 14px;
+}
+
+.phoneText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.statsRow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+}
+
+.statItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: hsl(var(--muted-foreground) / 0.9);
+}
+
+.statIcon {
+    width: 14px;
+    height: 14px;
+    color: hsl(var(--success));
+}
+
+.statText {
+    line-height: 14px;
+}
+
+.toggle {
+    appearance: none;
+    border: 0;
+    background: hsl(var(--destructive) / 0.1);
+    color: hsl(var(--destructive));
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 160ms ease;
+    flex: 0 0 auto;
+}
+
+.toggle:hover {
+    background: hsl(var(--destructive) / 0.2);
+}
+
+.toggleNoShow {
+    background: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+}
+
+.toggleNoShow:hover {
+    background: hsl(var(--success) / 0.2);
+}
+
+.toggleIcon {
+    width: 20px;
+    height: 20px;
+}
